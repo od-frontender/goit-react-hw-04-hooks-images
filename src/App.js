@@ -9,6 +9,7 @@ import api from './services/api';
 import ErrorMessage from './components/ErrorMessage';
 import Button from './components/Button';
 import Modal from './components/Modal';
+import './App.css';
 
 function App() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -76,7 +77,13 @@ function App() {
         <ImageGallery images={images} openModal={toggleModal} />
 
         {status === 'pending' && (
-          <Loader type="ThreeDots" color="#00BFFF" height={80} width={80} />
+          <Loader
+            className="Loader"
+            type="ThreeDots"
+            color="#00BFFF"
+            height={80}
+            width={80}
+          />
         )}
 
         {total > 12 && status === 'resolved' && (
@@ -85,7 +92,7 @@ function App() {
 
         {showModal && (
           <Modal onClose={toggleModal}>
-            <img src={largeURL} alt="" />
+            <img src={largeURL} />
           </Modal>
         )}
       </div>
